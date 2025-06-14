@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZX</title>
+    <style>
+    /* شاشة التحميل */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      z-index: 9999;
+    }
+
+    /* بعد تحميل الصفحة نخفي اللودر */
+    body.loaded #loader {
+      display: none;
+    }
+  </style>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="navbarStyle.css">
@@ -12,7 +32,7 @@
 </head>
 <body>
     
-   
+   <div id="loader">جارٍ التحميل...</div>
 <div class="container">
      <header>
         <a class="logo" href="#"></a>
@@ -105,5 +125,11 @@
     
 </div>
     <script src="script.js"></script>
+     <script>
+    // لما تكتمل كل الصور والملفات
+    window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+    });
+  </script>
 </body>
 </html>
