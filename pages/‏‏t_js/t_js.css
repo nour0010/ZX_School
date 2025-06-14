@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: '<weight>';
+    font-style: normal;
+}
+body{
+    height: 200vh;
+    background-image: linear-gradient(to bottom,#563c9d,#4724a8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+/* header navbar */
+
+a{
+    text-decoration: none;
+    display: block;  
+    color: white;
+     
+}
+@keyframes li_navbar {
+    0%{display:none; }
+    70%{display:block; }
+
+ }
+/* container */
+.container{
+    
+    width: 98%;
+    margin: 10px;
+    height: 97%;
+    background: #010a43;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+/* box_of_contant */
+.box_of_contant1{
+    background: #3e05a0;
+    width: 100%;
+    border-radius: 20px;
+    position: absolute;
+    top: 670px;
+    z-index: 8;
+    
+}
+
+.box_of_contant1 h2{
+    color: white;
+    background-color: black;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.box_of_contant1 .videos{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+}
+
+
+.box_of_contant1 .videos div iframe{
+   
+    width: 330px;
+    height: 200px;
+    border-radius: 20px;
+    transition: .5s;
+    margin: 5px;
+}
+.box_of_contant1 .videos div iframe:hover,.box_of_contant1 .books a img:hover{
+    box-shadow: 1px 1px 10px 5px rgb(200, 0, 255) ;
+}
+.start{
+height: 600px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content:center;
+
+}
+.javascript{
+    position: absolute;
+    font-size: 80px;
+    color: rgb(235, 248, 0);
+    top: 80px;
+    text-shadow: 1px 1px 20px;
+    animation: js 10s ease-in-out 0.5s infinite both;
+}
+@keyframes js{
+    0%{
+        letter-spacing: 0px;   
+    }
+    50%{
+        letter-spacing: 4px;
+    }
+    100%{
+        letter-spacing: 0px; 
+    }
+}
+.Earth{
+width: 300px;
+height: 300px;
+background-image: url(../../images/img-earth.jpg);
+border-radius: 50%;
+background-size:cover;
+background-position: 0;
+animation: EarthR 8s linear infinite running;
+rotate: -18deg;
+box-shadow: -10px 1px 20px 5px #0fbdba,-15px 1px 20px 3px black inset ;
+transition: 0.5s;
+scale: 1;
+z-index: 2;
+}
+.Earth:hover{
+    scale: 1.1;
+}
+@keyframes EarthR{
+    0%{
+        background-position: 0% ;
+    }
+    100%{
+        background-position: -217% ;
+    }
+}
+.Moon{
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    background-image: url(../../images/img-mon.jpg);
+    background-size: 310px;
+    animation: moonR 8s linear  infinite running, moonmoov 10s ease-in-out infinite running;
+    z-index: 3;
+    rotate: -10deg;
+    box-shadow: -10px 1px 20px 5px #bcc7c7,-15px 1px 20px 3px black inset ;
+    position: absolute;
+}
+@keyframes moonR{
+    0%{
+        background-position: 0% ;
+    }
+    100%{
+        background-position: -148% ;
+    }
+}
+@keyframes moonmoov{
+    0%{
+        translate: -250px -30px;
+        
+    }
+    50%{
+        translate: 250px 30px;
+        scale: 1;
+    }
+    65%{
+        scale: .9; 
+        z-index: 1;
+    }
+    100%{
+        
+        translate: -250px -30px; 
+        z-index: 1;
+    }
+}
+.start h2{
+    color: white;
+    position: absolute;
+    width: 90%;
+    top: 500px;
+    font-size: 18px;
+    animation: text 2s ease both;
+    translate: 0 0 ;
+        opacity: 1;
+}
+@keyframes text{
+    0%{
+        translate: 0 200px ;
+        opacity: 0;
+    }
+    100%{
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+@media (max-width: 710px){
+    .start h2{
+        color: white;
+        position: absolute;
+        width: 90%;
+        top: 400px;
+        font-size: 18px;
+        z-index: 6;
+        backdrop-filter: blur(30px);
+        animation: text 2s ease both;
+        translate: 0 0 ;
+            opacity: 1;
+            padding: 10px;
+            border-radius: 20px;
+            transition: .5s;
+    }
+    .javascript{
+        position: absolute;
+        font-size: 11vw;
+        color: rgb(235, 248, 0);
+        top: 80px;
+        text-shadow: 1px 1px 20px;
+        animation: js 10s ease-in-out 0.5s infinite both;
+       
+    }
+    .Earth{
+        width: 250px;
+        height: 250px;
+        background-image: url(../../images/img-earth.jpg);
+        border-radius: 50%;
+        background-size:cover;
+        background-position: 0;
+        animation: EarthR 8s linear infinite running;
+        rotate: -18deg;
+        box-shadow: -10px 1px 20px 5px #0fbdba,-15px 1px 20px 3px black inset ;
+        transition: 0.5s;
+        scale: 1;
+        z-index: 2;
+        }
+        .Moon{
+            width: 75px;
+            height: 75px;
+            background: red;
+            border-radius: 50%;
+            background-image: url(../../images/img-mon.jpg);
+            background-size: 310px;
+            animation: moonR 8s linear  infinite running, moonmoov 10s ease-in-out infinite running;
+            z-index: 3;
+            rotate: -10deg;
+            box-shadow: -10px 1px 20px 5px #bcc7c7,-15px 1px 20px 3px black inset ;
+            position: absolute;
+        }
+        @keyframes moonmoov{
+            0%{
+                translate: -200px -30px;
+                
+            }
+            50%{
+                translate: 200px 30px;
+                scale: 1;
+            }
+            65%{
+                scale: .9; 
+                z-index: 1;
+            }
+            100%{
+                
+                translate: -200px -30px; 
+                z-index: 1;
+            }
+        }
+        @keyframes moonR{
+            0%{
+                background-position: 0% ;
+            }
+            100%{
+                background-position: -131% ;
+            }
+        }
+        .box_of_contant1{
+            background: #3e05a0;
+            width: 100%;
+            border-radius: 20px;
+            position: absolute;
+            top: 700px;
+            z-index: 8;
+            transition: .5s;
+            
+        }
+}
+
+
