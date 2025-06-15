@@ -4,26 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZX</title>
-    <style>
-    /* شاشة التحميل */
-    #loader {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: #111;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      z-index: 9999;
-    }
-
-    /* بعد تحميل الصفحة نخفي اللودر */
-    body.loaded #loader {
-      display: none;
-    }
-  </style>
+    <link rel="stylesheet" href="load.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="navbarStyle.css">
@@ -50,7 +31,7 @@
     </div>
     
 
-    <h1 class="hello">كل ما تحتاجه لتعلم برمجه المواقع</h1>
+    <h1 id="hello">كل ما تحتاجه لتعلم برمجه المواقع</h1>
 
 
 
@@ -60,7 +41,7 @@
         <div class="sidbar_backend">
         <h2 class="text-sidbar">backend</h2>
         <a href="pages/backend/b.html" class="div-back" dir="rtl">
-            <img class="img-back" src="images/undraw_server_9eiz.png" alt="">
+            <img class="img-back" src="images/undraw_server_9eiz.png" loading="lazy" alt="">
         <h3>شرح مسار تعلم الـbackend</h3>
         
         </a>
@@ -68,14 +49,14 @@
         <div class="htmlandcss">
      
             <a href="pages/t_node.js/t_node.html" class="div-html" dir="rtl" >
-                <img class="img-html" src="images/img-nodejs1.jpg" alt="">
+                <img class="img-html" src="images/img-nodejs1.jpg" loading="lazy" alt="">
                 <h3>تعلم الـNod.js</h3>
              </a>
              
         </div>
         <h3 class="level">قواعد البيانات</h3>
 <a href="pages/t_MySQL/t_mysql.html" class="div-front" dir="rtl" >
-    <img class="img-front" src="images/img_sql-nosql-1.jpg" alt="">
+    <img class="img-front" src="images/img_sql-nosql-1.jpg" loading="lazy" alt="">
     <h3>MySQL</h3>
  </a>
         </div>
@@ -92,8 +73,8 @@
 
      <div class="sidbar_frontend">
      <h2 class="text-sidbar">frontend</h2>
-     <a href="/pages/frontend/f.html" class="div-front" dir="rtl" >
-        <img class="img-front" src="images/undraw_heatmap_zy1q.png" alt="">
+     <a href="pages/frontend/fr.html" class="div-front" dir="rtl" >
+        <img class="img-front" src="images/undraw_heatmap_zy1q.png" loading="lazy" alt="">
         <h3>شرح مسار تعلم الـfrontend</h3>
      </a>
 
@@ -101,18 +82,18 @@
 <div class="htmlandcss">
      
     <a href="pages/t_html/t_html.html" class="div-html" dir="rtl" >
-        <img class="img-html" src="images/Picsart_25-01-15_21-12-49-504.jpg" alt="">
+        <img class="img-html" src="images/Picsart_25-01-15_21-12-49-504.jpg" loading="lazy" alt="">
         <h3>1-تعلم لغة الـhtml</h3>
      </a>
      
      <a href="pages/t_css/t_css.html" class="div-css" dir="rtl" >
-        <img class="img-css" src="images/img_css.jpg" alt="">
+        <img class="img-css" src="images/img_css.jpg" loading="lazy" alt="">
         <h3>2-تعلم لغة الـcss</h3>
      </a>
 </div>
 <h3 class="level">مستوى المتقدم</h3>
 <a href="pages/‏‏t_js/t_js.html" class="div-front" dir="rtl" >
-    <img class="img-front" src="images/img_js.png" alt="">
+    <img class="img-front" src="images/img_js.png" loading="lazy" alt="">
     <h3>3-تعلم لغة الـjavascript</h3>
  </a>
  
@@ -125,11 +106,11 @@
     
 </div>
     <script src="script.js"></script>
-     <script>
-    // لما تكتمل كل الصور والملفات
-    window.addEventListener("load", function() {
+     <script> 
+     window.addEventListener("load", function() {
       document.body.classList.add("loaded");
-    });
-  </script>
+      hello.style.animation="helloh 2s ease-in-out  both";
+      
+    });</script>
 </body>
 </html>
