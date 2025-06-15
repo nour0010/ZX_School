@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title dir="rtl">تعلم لغة الcss</title>
+    <link rel="stylesheet" href="../../load.css">
     <link rel="stylesheet" href="t_css.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,9 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    
   </head>
   <body>
+    <div id="loader">جارٍ التحميل...</div>
     <div class="container">
       <header>
         <a class="logo" href="#"></a>
@@ -118,5 +121,9 @@
         </div>
       </div>
     </div>
+    <script> window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+      hello.style.animation="helloh 2s ease-in-out  both";
+    });</script>
   </body>
 </html>

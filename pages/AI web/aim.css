@@ -186,4 +186,13 @@ h2{
         animation: img-start 1.5s ease-in-out ;
         transition: 0.5s;
         
-    }}
+    }
+   .div-item{
+    width: 87%;
+    margin: 20px;
+    display: inline-block;
+    min-height: 120px;
+    border-radius: 15px;
+    border: 2px solid white;    
+}
+}

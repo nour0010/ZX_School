@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../load.css">
     <link rel="stylesheet" href="aichat.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="../../navbarStyle.css">
@@ -11,9 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>دليل صنع المواقع بالذكاء الصناعي</title>
   </head>
   <body>
+    <div id="loader">جارٍ التحميل...</div>
     <div class="container">
       <header>
         <a class="logo" href="#"></a>
@@ -60,5 +62,8 @@
        
       </div>
     </div>
+    <script> window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+    });</script>
   </body>
 </html>

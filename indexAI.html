@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZX</title>
+    <link rel="stylesheet" href="load.css">
     <link rel="stylesheet" href="styleAI.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="navbarStyle.css">
@@ -11,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+   <div id="loader">جارٍ التحميل...</div> 
 <div class="container">
      <header>
         <a class="logo" href="#"></a>
@@ -52,5 +53,9 @@
     
 </div>
     <script src="script.js"></script>
+    <script> window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+      hello.style.animation="helloh 2s ease-in-out  both";
+    });</script>
 </body>
 </html>
