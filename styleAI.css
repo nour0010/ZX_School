@@ -81,11 +81,10 @@ z-index: 5;
     background: #010a43;
     width: 100%;
     border-radius: 20px;
-    
     position: absolute;
     top: 690px;
     z-index: 8;
-
+    padding-bottom: 50px;
 }
 
 
