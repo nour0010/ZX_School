@@ -86,6 +86,11 @@ a{
     color: white;
      
 }
+@keyframes li_navbar {
+    0%{display:none; }
+    70%{display:block; }
+
+ }
 @media (max-width:619px){
     
 ul{
