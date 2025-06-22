@@ -8,11 +8,11 @@
 }
 body{
     
-    background-image: linear-gradient(to bottom,#563c9d,#4724a8);
+     background:black;
     display: flex;
     align-items: center;
     justify-content: center;
-   min-height: 100vh;
+     height: 100vh;
    
 }
 /* header navbar */
@@ -32,9 +32,10 @@ a{
     background: #010a43;
     border-radius: 20px;
     text-align: center;
-    position: relative;
+    
     display: flex;
     justify-content: center;
+    
 }
 /* box_of_contant */
 .box_of_contant1{
@@ -42,7 +43,8 @@ a{
     background: #3e05a0;
     width: 100%;
     border-radius: 20px;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    
 }
 
 h2{
@@ -53,6 +55,9 @@ h2{
     padding: 10px;
 }
 
+.Platforms{
+    background-color:#3e05a0;
+}
 
 
 

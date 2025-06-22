@@ -8,11 +8,11 @@
 }
 body{
  
-    background-image: linear-gradient(to bottom,#563c9d,#4724a8);
+    background:black;
     display: flex;
     align-items: center;
     justify-content: center;
-   min-height: 100vh;
+    height: 100vh;
 }
 /* header navbar */
 
@@ -55,7 +55,9 @@ h2{
 }
 
 
-
+.Platforms{
+    background-color:#3e05a0;
+}
 
 .div-item{
     width: 420px;
