@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: '<weight>';
+    font-style: normal;
+}
+body{
+    
+     background:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     height: 100vh;
+   
+}
+/* header navbar */
+a{
+    text-decoration: none;
+    display: block;  
+    color: white;
+     
+}
+
+/* container */
+.container{
+    
+    width: 98%;
+    margin: 10px;
+    height: 97%;
+    background: #010a43;
+    border-radius: 20px;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    
+}
+/* box_of_contant */
+.box_of_contant1{
+    margin-top: 50px;
+    background: #3e05a0;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    
+}
+
+h2{
+    color: white;
+    background-color: black;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Platforms{
+    background-color:#3e05a0;
+}
+
+
+
+.div-item{
+    width: 420px;
+    margin: 20px;
+    display: inline-block;
+    min-height: 120px;
+    border-radius: 15px;
+    border: 2px solid white;
+   
+    
+}
+.img-item{
+    width: 90%;
+    border-radius: 15px;
+    margin-top:10px ;
+    transition: .5s;
+}
+.img-item:hover{
+    width: 95%;
+}
+
+
+@keyframes img-start{
+    0%{
+      transform: translateX(-100px);
+       opacity: 0;
+    }
+    
+}
+@media (max-width:1120px){
+    
+    .start{
+        height: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-around;
+        position: relative;
+        
+        
+        }
+        .start h2{
+            position: absolute;
+            width: 90%;
+            color: white;
+            margin: 10px;
+            font-size: 20px;
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 20px;
+            top: 300px;
+        }
+        .start img{
+            position: absolute;
+            top: 10px;
+            width: 500px;
+            animation: img-start 1.5s ease-in-out ;
+            
+        }
+}
+@media(max-width:614px){
+    
+    .start img{
+        position: absolute;
+        top: 50px;
+        width: 350px;
+        animation: img-start 1.5s ease-in-out ;
+        transition: 0.5s;
+        
+    }
+   .div-item{
+    width: 87%;
+    margin: 20px;
+    display: inline-block;
+    min-height: 120px;
+    border-radius: 15px;
+    border: 2px solid white;    
+}
+}
