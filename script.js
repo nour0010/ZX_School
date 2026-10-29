@@ -1,34 +1,50 @@
-let bgImg2=document.getElementsByClassName('bgImg2')[0];
-let bgImg3=document.getElementsByClassName('bgImg3')[0];
-let bgImg4=document.getElementsByClassName('bgImg4')[0];
-let bgImg5=document.getElementsByClassName('bgImg5')[0];
-let r1=document.getElementsByClassName('r1')[0];
-let s1=document.getElementsByClassName('s1')[0];
-let r2=document.getElementsByClassName('r2')[0];
-let s2=document.getElementsByClassName('s2')[0];
-let r3=document.getElementsByClassName('r3')[0];
-let s3=document.getElementsByClassName('s3')[0];
-let box_of_contant=document.getElementsByClassName('box_of_contant')[0];
-console.log(bgImg2);
-console.log(bgImg3);
-console.log(bgImg4);
-onscroll=function(){
-    let valueSC= scrollY;
-    console.log(valueSC);
-    bgImg2.style.transform=`translateY(-${valueSC}px)`
-    bgImg3.style.transform=`translateY(-${valueSC/2}px)`
-    bgImg4.style.transform=`translateY(-${valueSC/5}px)`
-    bgImg5.style.transform=`translateY(-${valueSC/7}px)`
-   box_of_contant.style.transform=`translateY(-${valueSC}px)`
+// ZX School - parallax scroll (نسخة محسّنة للهاتف)
+const byClass = (c) => document.getElementsByClassName(c)[0];
 
-   function Effect_bar(start,r,heightr,s){
-   if(valueSC>start){
-    r.style.height=`${heightr}vw`;
-    s.style.height='10px'
-    s.style.animation= 'ms1 0.5s ease-in-out 1.5s 1 forwards';
-   }
+const layers = [
+  { el: byClass('bgImg2'), speed: 1 },
+  { el: byClass('bgImg3'), speed: 1 / 2 },
+  { el: byClass('bgImg4'), speed: 1 / 5 },
+  { el: byClass('bgImg5'), speed: 1 / 7 },
+  { el: byClass('box_of_contant'), speed: 1 },
+].filter((l) => l.el); // يتجاهل العناصر الغير موجودة (مثل صفحات ثانية)
+
+const bars = [
+  { start: 240, r: byClass('r1'), s: byClass('s1'), h: 29, done: false },
+  { start: 368, r: byClass('r2'), s: byClass('s2'), h: 24, done: false },
+  { start: 589, r: byClass('r3'), s: byClass('s3'), h: 34, done: false },
+].filter((b) => b.r && b.s);
+
+let ticking = false;
+
+function update() {
+  ticking = false;
+  const y = window.scrollY || window.pageYOffset || 0;
+
+  for (const l of layers) {
+    l.el.style.transform = `translate3d(0, ${-y * l.speed}px, 0)`;
+  }
+
+  for (const b of bars) {
+    if (!b.done && y > b.start) {
+      b.done = true; // يتنفذ مرة وحدة بس
+      b.r.style.height = `${b.h}vw`;
+      b.s.style.height = '10px';
+      b.s.style.animation = 'ms1 0.5s ease-in-out 1.5s 1 forwards';
+    }
+  }
 }
-Effect_bar(240,r1,29,s1);
-Effect_bar(368,r2,24,s2);
-Effect_bar(589,r3,34,s3);
+
+// تحديث واحد لكل فريم بدل كل حدث scroll
+function requestUpdate() {
+  if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(update);
+  }
 }
+
+window.addEventListener('scroll', requestUpdate, { passive: true });
+window.addEventListener('resize', requestUpdate);
+window.addEventListener('load', update);
+window.addEventListener('pageshow', update);
+update(); // يرتب المواضع من أول لحظة حتى ما يطلع فراغ

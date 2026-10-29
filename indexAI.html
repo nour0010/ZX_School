@@ -59,6 +59,11 @@
   "logo": "https://nour0010.github.io/ZX_School/images/img_my_web.png"
 }
 </script>
+    <!-- تحميل مسبق لصور الخلفية حتى ما يصير تأخير/فراغ عند الفتح -->
+    <link rel="preload" as="image" href="images/background1_2.png">
+    <link rel="preload" as="image" href="images/background2.png">
+    <link rel="preload" as="image" href="images/background3.png">
+    <link rel="preload" as="image" href="images/background4.png">
     <link rel="stylesheet" href="load.css">
     <link rel="stylesheet" href="styleAI.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,16 +96,16 @@
 
     <div class="box_of_contant">
         <a href="pages/AI web/aiw.html" class="div-item-mid" dir="rtl" >
-            <img class="img-item" src="images/ai_img1.png" alt="">
+            <img class="img-item" src="images/ai_img1.png" alt="" loading="lazy" decoding="async">
             <h3>شرح اهم الخطوات لصناعه موقع بالAI</h3>
          </a>
          <a href="pages/AI web/aim.html" class="div-item" dir="rtl" >
-            <img class="img-item" src="images/ai_img2.jpg" alt="">
+            <img class="img-item" src="images/ai_img2.jpg" alt="" loading="lazy" decoding="async">
             <h3>اصنع موقعك باشهر المنصات</h3>
          </a>
        
          <a href="pages/AI web/Aichat.html" class="div-item" dir="rtl" >
-            <img class="img-item" src="images/ai_img3.jpg" alt="">
+            <img class="img-item" src="images/ai_img3.jpg" alt="" loading="lazy" decoding="async">
             <h3>اصنع موقع بال Ai chat</h3>
          </a>
     </div>
@@ -108,9 +113,10 @@
     
 </div>
     <script src="script.js"></script>
-    <script> window.addEventListener("load", function() {
-      document.body.classList.add("loaded");
-      hello.style.animation="helloh 2s ease-in-out  both";
-    });</script>
+    <script>
+      window.addEventListener("load", function () {
+        document.body.classList.add("loaded");
+      });
+    </script>
 </body>
 </html>
