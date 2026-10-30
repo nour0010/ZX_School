@@ -15,6 +15,37 @@ const bars = [
   { start: 589, r: byClass('r3'), s: byClass('s3'), h: 34, done: false },
 ].filter((b) => b.r && b.s);
 
+// ===== تثبيت طول الصفحة =====
+// الطبقات تتحرك للأعلى بسرعة ضعف التمرير، فلازم الصفحة تنتهي بالضبط لما
+// يصير المستطيل ملتصق بآخر الشاشة. نحسب المسافة مرة وحدة ونثبّتها (بدل ما تتغير مع الحركة).
+const boxEl = byClass('box_of_contant');
+const boxSpeed = 1;
+let lastW = -1;
+
+function fixPageHeight() {
+  if (!boxEl) return;
+  const vh = document.documentElement.clientHeight;
+  const body = document.body;
+  const container = byClass('container');
+
+  const prevT = boxEl.style.transform;
+  boxEl.style.transform = 'none';
+  const bottom = boxEl.getBoundingClientRect().bottom + (window.scrollY || 0);
+  boxEl.style.transform = prevT;
+
+  // المستطيل يتحرك y*(speed) إضافي، فمدى التمرير = (طول المحتوى - الشاشة) / (1 + speed)
+  const range = Math.max(0, (bottom - vh) / (1 + boxSpeed));
+  body.style.height = Math.round(range + vh) + 'px';
+  // html لازم يكون عنده overflow حتى ما ينتقل قص body لكل الصفحة ويوقف التمرير
+  document.documentElement.style.overflowY = 'auto';
+  body.style.overflow = 'clip';
+  body.style.alignItems = 'flex-start';
+  if (container) {
+    container.style.height = Math.round(vh * 0.97) + 'px';
+    container.style.marginTop = Math.round(vh * 0.015) + 'px';
+  }
+}
+
 let ticking = false;
 
 function update() {
@@ -44,7 +75,25 @@ function requestUpdate() {
 }
 
 window.addEventListener('scroll', requestUpdate, { passive: true });
-window.addEventListener('resize', requestUpdate);
-window.addEventListener('load', update);
+window.addEventListener('resize', () => {
+  // نعيد الحساب فقط إذا تغير العرض (حتى ما يتأثر بشريط المتصفح بالهاتف)
+  if (window.innerWidth !== lastW) {
+    lastW = window.innerWidth;
+    fixPageHeight();
+  }
+  requestUpdate();
+});
+window.addEventListener('load', () => { lastW = window.innerWidth; fixPageHeight(); update(); });
 window.addEventListener('pageshow', update);
+lastW = window.innerWidth;
+fixPageHeight();
+// إذا تغير طول المستطيل (مثلاً بعد تحميل صور متأخرة) نعيد حساب طول الصفحة
+if (boxEl && window.ResizeObserver) {
+  let pending = false;
+  new ResizeObserver(() => {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => { pending = false; fixPageHeight(); update(); });
+  }).observe(boxEl);
+}
 update(); // يرتب المواضع من أول لحظة حتى ما يطلع فراغ
