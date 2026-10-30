@@ -181,18 +181,3 @@ z-index: 5;
     .bgImg4{background-image:url(images/opt/background3-m.webp);}
     .bgImg5{background-image:url(images/opt/background4-m.webp);}
 }
-
-/* حركة البارالاكس بـ CSS على كرت الشاشة (أسلس بالهاتف) - يشتغل فقط إذا المتصفح يدعمها */
-@keyframes zxParallax{
-    to{ transform: translate3d(0, calc(var(--max, 0) * var(--k, 1) * -1px), 0); }
-}
-html.sda .img,
-html.sda .box_of_contant{
-    animation: zxParallax linear both;
-    animation-timeline: scroll(root block);
-}
-html.sda .bgImg2{ --k: 1; }
-html.sda .bgImg3{ --k: 0.5; }
-html.sda .bgImg4{ --k: 0.2; }
-html.sda .bgImg5{ --k: 0.142857; }
-html.sda .box_of_contant{ --k: 1; }
