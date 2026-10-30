@@ -37,7 +37,7 @@ a{
 }
 .background_img ,.img{
     position:absolute;
-    background-image: url(images/main-background.jpg);
+    background-image: url(images/opt/main-background.webp);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -52,20 +52,20 @@ a{
     transform: translateZ(0);
 }
 .bgImg2{
-background-image: url(images/background1_2.png);
+background-image: url(images/opt/background1_2.webp);
 z-index: 5;
 
 }
 .bgImg3{
-    background-image: url(images/background2.png);
+    background-image: url(images/opt/background2.webp);
     z-index: 4;
 }
 .bgImg4{
-    background-image: url(images/background3.png);
+    background-image: url(images/opt/background3.webp);
     z-index: 3;
 }
 .bgImg5{
-    background-image: url(images/background4.png);
+    background-image: url(images/opt/background4.webp);
     z-index: 2;
 }
 .container #hello{
@@ -292,3 +292,27 @@ border-radius: 30px;
             font-size: 20px;
         }     
 }
+
+/* نسخ أخف للهاتف: صور أصغر = ذاكرة أقل = حركة أسلس */
+@media (max-width:775px){
+    .background_img{background-image:url(images/opt/main-background-m.webp);}
+    .bgImg2{background-image:url(images/opt/background1_2-m.webp);}
+    .bgImg3{background-image:url(images/opt/background2-m.webp);}
+    .bgImg4{background-image:url(images/opt/background3-m.webp);}
+    .bgImg5{background-image:url(images/opt/background4-m.webp);}
+}
+
+/* حركة البارالاكس بـ CSS على كرت الشاشة (أسلس بالهاتف) - يشتغل فقط إذا المتصفح يدعمها */
+@keyframes zxParallax{
+    to{ transform: translate3d(0, calc(var(--max, 0) * var(--k, 1) * -1px), 0); }
+}
+html.sda .img,
+html.sda .box_of_contant{
+    animation: zxParallax linear both;
+    animation-timeline: scroll(root block);
+}
+html.sda .bgImg2{ --k: 1; }
+html.sda .bgImg3{ --k: 0.5; }
+html.sda .bgImg4{ --k: 0.2; }
+html.sda .bgImg5{ --k: 0.142857; }
+html.sda .box_of_contant{ --k: 1; }
